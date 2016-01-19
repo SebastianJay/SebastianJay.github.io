@@ -119,14 +119,18 @@ function initBGImages() {
     gDisplaceFilter.scale.y = 10;
     gContainer.filters = [gDisplaceFilter];
 
+    // if running PHP on server, use this call
     //makeAJAXCall('./webservice.php?field='+gFieldName, readVectorFieldCallback);
+    // otherwise use this call to load text resource on client side
     readTextFile('data/'+gFieldName+'_field.csv', parseFieldText, transferVectorField);
 }
 
 function initSong() {
     var elt = document.getElementById('music-selectsong');
     gSongName = gSongChoices[parseInt(elt.value, 10)];
+    // if running PHP on server, use this call
     //makeAJAXCall('./webservice.php?song='+gSongName, readMusicDataCallback);
+    // otherwise use this call to load text resource on client side
     readTextFile('data/'+gSongName+'.csv', parseFreqText, transferMusicData);
     gCurrentTime = 0.0;
 }
@@ -136,10 +140,11 @@ function updateCallbackCounter() {
     if (gInitCounter >= 2) {
         //initialize timers
         gLoaded = true;
-        gTimestamp = Date.now();
+        gTimestamp = 0.0;
         //start music
         var elt = document.getElementById('music-player');
         elt.src = 'music/' + gSongName + '.wav';
+        elt.load();
         elt.play();
         document.getElementById('music-playpause').innerHTML = 'Pause';
         //start animation
@@ -160,7 +165,6 @@ function playButtonHandler() {
         } else {
             elt.play();
             elt1.innerHTML = 'Pause';
-            gTimestamp = Date.now();
         }
         gPaused = !gPaused;
     }
@@ -384,8 +388,8 @@ function updateFilters() {
 function animate() {
     if (!gPaused) {
         //update timestamps
-        var now = Date.now();
-        gDT = now - gTimestamp;
+        var now = document.getElementById('music-player').currentTime;
+        gDT = (now - gTimestamp) * 1000;
         gCurrentTime += gDT;
         gTimestamp = now;
 
