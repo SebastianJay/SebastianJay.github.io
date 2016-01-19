@@ -79,8 +79,10 @@
             </ul>
             <p>If you create new content, you will need to modify the global variables at the top of <em>musicvis.js</em> so that you will be able
             to select them on this page. To run this system, you need to have a server with PHP serving this directory. XAMPP is a good option
-            for this task. The sliders should work as the song is playing; however, to choose a new song or background, wait until the current
-            song is over or refresh the page. If the renderer blacks out after multiple plays, please refresh the page.
+            for this task. If PHP is not available, a separate JS file (<em>readclient.js</em>) can be used to bypass the need for <em>webservice.php</em>.
+            The sliders should work as the song is playing; however, to choose a new song or background, wait until the current song is over or
+            refresh the page. If the renderer blacks out after multiple plays, or the audio and video are desynced, please refresh the page (there are
+            a bunch of small problems that prevent the system from being robust; this prototype is intended to show the general idea of the project).
             </p>
             <p><strong>Future Work</strong>: I do not plan to develop this project further, but if I did I would consider the following:
             <ul>
