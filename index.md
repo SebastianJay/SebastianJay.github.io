@@ -31,4 +31,4 @@ A hosting place for my projects! **NOTE**: Please do not view the projects made 
 
 * Electronics Project - Music Visualizer
 	* Similar to the neural style visualizer, but now implemented in hardware. The circuit board takes in an audio signal and lights up two different LEDs corresponding to treble and bass frequencies
-	* [Demo Video](https://www.youtube.com/watch?v=cUGfNYyqKtA) - not too interesting, but it does play Darude Sandstorm!
+	* [Demo Video](https://www.youtube.com/watch?v=cUGfNYyqKtA) - shows the circuit board in action with Darude Sandstorm!
