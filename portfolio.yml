@@ -1,0 +1,59 @@
+categories:
+  -
+    id:           games
+    name:         Games
+  -
+    id:           software
+    name:         "Software &amp; Sites"
+  -
+    id:           hardware
+    name:         Hardware
+items:
+  -
+    category:     games
+    title:        Hello
+    subtitle:     World
+    description:  "A cool new way to greet people!"
+    carousel:
+      -
+        type:     image
+        link:     img/ex1.png
+      -
+        type:     image
+        link:     img/ex2.png
+      -
+        type:     image
+        link:     img/ex3.png
+    actions:
+      -
+        type:     github
+        link:     https://github.com/SebastianJay/SebastianJay.github.io
+        tooltip:  See GitHub repository
+      -
+        type:     external
+        link:     https://github.com/SebastianJay/SebastianJay.github.io
+        tooltip:  Visit site
+  -
+    category:     software
+    title:        Hello
+    subtitle:     World
+    description:  "A cool new way to greet people!"
+    carousel:
+      -
+        type:     image
+        link:     img/ex1.png
+      -
+        type:     image
+        link:     img/ex2.png
+      -
+        type:     image
+        link:     img/ex3.png
+    actions:
+      -
+        type:     github
+        link:     https://github.com/SebastianJay/SebastianJay.github.io
+        tooltip:  See GitHub repository
+      -
+        type:     external
+        link:     https://github.com/SebastianJay/SebastianJay.github.io
+        tooltip:  Visit site

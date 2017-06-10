@@ -1,0 +1,31 @@
+#jay-container {
+  padding-left: 20px;
+}
+
+.portfolio-carousel {
+}
+
+.portfolio-info {
+  min-height: 6rem;
+}
+
+code {
+  white-space: pre;
+}
+
+/* fix for images in carousels */
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: block;
+}
+
+/* dropdown show on hover */
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  margin-top: 0;
+  width: 100%;
+}
