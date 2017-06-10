@@ -35,9 +35,9 @@ items:
         tooltip:  Visit site
   -
     category:     software
-    title:        Hello
-    subtitle:     World
-    description:  "A cool new way to greet people!"
+    title:        What's Up?
+    subtitle:     It's a beautiful day
+    description:  "Yet another item."
     carousel:
       -
         type:     image

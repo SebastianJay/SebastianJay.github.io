@@ -18,10 +18,26 @@ $(function() {
   });
   */
 
-  // swap which portfolio item is shown
-  $('#link-1').click(function() {
-    $('#item-1').fadeOut('slow', function() {
-      $('#item-2').fadeIn('fast');
+  // portfolio item switching logic
+  var activeId = '-1';
+  $('#portfolio-nav .nav-link').not('.dropdown-toggle').each(function() {
+    $(this).click(function() {
+      var idTok = $(this).attr('id').split('-');
+      var mId = idTok[idTok.length - 1];
+      if (mId != activeId) {
+        // adjust which links have active class
+        if (activeId != '-1') {
+          $('#link-' + activeId).removeClass('active');
+          $('#link-' + activeId).parent().prev().removeClass('active');
+        }
+        $('#link-' + mId).addClass('active');
+        $('#link-' + mId).parent().prev().addClass('active');
+        // fade to next item
+        $(activeId == '-1' ? '#item-default' : '#item-' + activeId).fadeOut('slow', function() {
+          $('#item-' + mId).fadeIn('fast');
+          activeId = mId;
+        });
+      }
     });
   });
 });
