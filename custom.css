@@ -15,16 +15,24 @@
   width: 100%;
 }
 
+.nav-link.fa-2x {
+  padding: 0.125em 0.5em;
+}
+
 /* formatting for the cv page */
-#cv-container h2 {
+#cv-container h1, #cv-container h2 {
   text-align: center;         /* text-center */
 }
 
-#cv-container h6 {
+#cv-container h5, #cv-container h6 {
   /* move header to right alongside previous header; not responsive */
   position: relative;
-  top: -26px;
-  margin-bottom: -18px;
+  top: -1.625rem;
+  margin-bottom: -1.125rem;
   text-align: right;          /* text-right */
   color: #636c72!important;   /* text-muted */
+}
+
+#cv-container p {
+  margin-bottom: 0.5rem;
 }

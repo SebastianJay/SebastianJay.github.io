@@ -17,12 +17,12 @@
 
 <body>
   <!-- navbar -->
-  <nav class="navbar navbar-light navbar-toggleable-md bg-faded mb-4">
-    <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-light navbar-toggleable-md bg-faded sticky-top mb-4">
+    <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="index.html">Jay Sebastian</a>
-    <div id="navbarContent" class="collapse navbar-collapse">
+    <div id="navbar-content" class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link " href="portfolio.html">Portfolio</a>
@@ -32,16 +32,52 @@
         </li>
       </ul>
     </div>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link fa fa-2x fa-github" href="https://github.com/SebastianJay" target="_blank"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fa fa-2x fa-soundcloud" href="https://soundcloud.com/jaysebastian" target="_blank"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fa fa-2x fa-linkedin" href="https://linkedin.com/in/jay-sebastian-4a3910105" target="_blank"></a>
+        </li>
+      </ul>
+    </div>
   </nav>
 
   <!-- homepage div -->
-<div id="cv-container" class="container">
+<h1 class="text-center mb-4">sebastianjay.github.io</h1>
+<div class="container">
   <div class="row">
     <div class="col-md-4">
-      <!-- picture -->
+      <img src="img/jay_head.jpg" class="img-fluid" alt="jay portrait"></img>
     </div>
     <div class="col-md-8">
-      texty text
+      <p>
+      Hello and welcome! My name's Jay, and I'm a software engineer interested
+      in gaming, web development, image processing, automation, and admittedly
+      anything else that sounds interesting.
+      </p>
+      <p>
+      This site illustrates several projects I've worked on for classes, clubs,
+      and just for fun. In some cases, portfolio items will be accompanied with
+      builds that you can interact with through the site. These links are
+      provided below for your convenience.
+      </p>
+      <h6>Site Navigation</h6>
+      <ul>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <ul>
+          <li>Bounce (2D platforming game)</li>
+          <li>Cake Walk (2D 2-player coop platformer)</li>
+          <li>CubeWorld (3D walking simulator)</li>
+          <li>Yeah Music (Musical "Doodle Jump" game)</li>
+          <li>Neural Music (Visualizer)</li>
+        </ul>
+      </ul>
     </div>
   </div>
 </div>
