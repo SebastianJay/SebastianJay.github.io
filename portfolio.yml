@@ -11,10 +11,10 @@ categories:
 items:
   -
     category:     games
-    title:        Hello
-    subtitle:     World
-    description:  "A cool new way to greet people!"
-    carousel:
+    title:        Wilderness
+    subtitle:     Minimalist Text-Based Adventure
+    description:  "Built with a custom Python engine (only using external libraries tkinter for graphics and pygame for music) and markup language, this game tells the story of two individuals who are traveling to a sinkhole that threatens to consume their planet. Travel between towns, collect items, and solve puzzles to keep the plot moving."
+    resources:
       -
         type:     image
         link:     img/ex1.png
@@ -24,36 +24,45 @@ items:
       -
         type:     image
         link:     img/ex3.png
-    actions:
       -
         type:     github
         link:     https://github.com/SebastianJay/SebastianJay.github.io
-        tooltip:  See GitHub repository
       -
         type:     external
         link:     https://github.com/SebastianJay/SebastianJay.github.io
-        tooltip:  Visit site
+  -
+    category:     games
+    title:        Bounce
+    subtitle:     Quirky 2D Platformer
+    description:  "Built with Unity, this 2D platformer follows the journey of Bob, a disembodied head searching for the remnants of his body. Chat with and aid townspeople, acquire collectibles and upgrades, and traverse various locales: city, jungle, even outer space!"
+    resources:    {}
+  -
+    category:     games
+    title:        Cakewalk
+    subtitle:     2-Player Local Coop Platformer
+    description:  "This game was made for a UVA game design course and built with a TypeScript game engine which targets HTML5 canvas. Two players control a red and a blue character on a horizontally split screen; the characters have special interactions with objects of their color. To progress through the level, players need to switch places with each other: communication is key!"
+    resources:    {}
+  -
+    category:     games
+    title:        CubeWorld
+    subtitle:     6-Sided Walking Simulator
+    description:  "Made with WebGL (with no major libraries or frameworks) for a UVA graphics course, this 3D first person game allows you to walk on the inside of a six sided cube featuring different biomes."
+    resources:    {}
+  -
+    category:     games
+    title:        Yeah Music
+    subtitle:     Doodle Jump with Sick Beats
+    description:  "A quick and simple game made using Unity for a hackathon. Try to stay on screen and touch platforms of different colors in order to trigger different musical loops that harmonize well together. Each run's complete track is a random selection of loops."
+    resources:    {}
+  -
+    category:     games
+    title:        Sunset High
+    subtitle:     Murder Mystery RPG
+    description:  "One of the first games I worked on! I developed much of the code within MonoGame for a top-down RPG that's set in a high school; unfortunately the end product remains a prototype. Talk to NPCs with branching dialogue, perform quests to infiltrate cliques, pickpocket items from other students, and even fight a boss!"
+    resources:    {}
   -
     category:     software
     title:        What's Up?
     subtitle:     It's a beautiful day
     description:  "Yet another item."
-    carousel:
-      -
-        type:     image
-        link:     img/ex1.png
-      -
-        type:     image
-        link:     img/ex2.png
-      -
-        type:     image
-        link:     img/ex3.png
-    actions:
-      -
-        type:     github
-        link:     https://github.com/SebastianJay/SebastianJay.github.io
-        tooltip:  See GitHub repository
-      -
-        type:     external
-        link:     https://github.com/SebastianJay/SebastianJay.github.io
-        tooltip:  Visit site
+    resources:    {}

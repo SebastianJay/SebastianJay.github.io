@@ -5,9 +5,11 @@
   display: block;
 }
 
-/* dropdown show on hover */
-.dropdown:hover>.dropdown-menu {
-  display: block;
+/* override style of sibling list items that are not selected */
+.nav-pills .nav-item.show .dropdown-menu .nav-link:not(.active) {
+  color: #0275d8;
+  cursor: auto;
+  background-color: transparent;
 }
 
 .dropdown-menu {

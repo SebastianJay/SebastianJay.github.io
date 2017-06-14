@@ -32,7 +32,7 @@ Bachelor of Science, Computer Science and Computer Engineering; Engineering Busi
 
 * Resolved bug/feature tickets as full-stack developer on customer and dealer-facing websites
 * Created HTML5 video player prototype for playback of uploaded camera clips
-* Developed with HTML, CSS, Javascript, jQuery, C#, and SQL
+* Developed with HTML, CSS, JavaScript, jQuery, C#, and SQL
 
 #### Decisive Analytics Corporation
 ###### Summer 2014
@@ -93,6 +93,6 @@ I have over 10 years of practice as a pianist. I performed in the lobby of the U
 
 ## Skills
 
-**Fluent in**: Java, C, C++, C#, Python, Javascript, Typescript, Ruby on Rails, SQL, HTML, CSS/LESS
+**Fluent in**: Java, C, C++, C#, Python, JavaScript, TypeScript, Ruby on Rails, SQL, HTML, CSS/LESS
 
 **Familiar with**: PHP, OCaml, jQuery, Angular JS, Node JS, Twitter Bootstrap, Powershell, Bash, x86 ASM, Android, OpenGL/WebGL, LabVIEW (CLAD certified), Matlab, VHDL, MonoGame, Unity, LibGDX

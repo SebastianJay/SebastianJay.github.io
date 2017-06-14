@@ -1,12 +1,3 @@
-// dropdown show on hover from https://stackoverflow.com/q/42183672
-$('body').on('mouseenter mouseleave', '.dropdown', function(e) {
-  var _d = $(e.target).closest('.dropdown');
-  _d.addClass('show');
-  setTimeout(function() {
-    _d[_d.is(':hover') ? 'addClass' : 'removeClass']('show');
-  }, 300);
-});
-
 $(function() {
   // initialize Bootstrap tooltips
   $('[data-toggle="tooltip"]').tooltip();
@@ -25,6 +16,7 @@ $(function() {
       var idTok = $(this).attr('id').split('-');
       var mId = idTok[idTok.length - 1];
       if (mId != activeId) {
+
         // adjust which links have active class
         if (activeId != '-1') {
           $('#link-' + activeId).removeClass('active');
@@ -32,6 +24,10 @@ $(function() {
         }
         $('#link-' + mId).addClass('active');
         $('#link-' + mId).parent().prev().addClass('active');
+
+        // close dropdown list from which the link was chosen
+        $('[data-toggle="dropdown"]').parent().removeClass('show');
+
         // fade to next item
         $(activeId == '-1' ? '#item-default' : '#item-' + activeId).fadeOut('slow', function() {
           $('#item-' + mId).fadeIn('fast');

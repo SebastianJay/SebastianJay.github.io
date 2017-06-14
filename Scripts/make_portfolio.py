@@ -56,16 +56,18 @@ for item in p_data['items']:
 
     # action buttons
     action_buttons = []
-    for action in item['actions']:
-        action_buttons.append(templateSub('button_icon', fa_icons[action['type']],
-            templateSub('button_tooltip', action['tooltip'] if 'tooltip' in action else tooltip_defaults[action['type']], action_button_template)))
+    for action in item['resources']:
+        if action['type'] in list(fa_icons.keys()):
+            action_buttons.append(templateSub('button_icon', fa_icons[action['type']],
+                templateSub('button_tooltip', action['tooltip'] if 'tooltip' in action else tooltip_defaults[action['type']], action_button_template)))
 
     # carousel slides
     carousel_slides = []
-    for slide in item['carousel']:
+    for slide in item['resources']:
         slide_active = 'active' if len(carousel_slides) == 0 else ''
-        carousel_slides.append(templateSub('slide_src', slide['link'],
-            templateSub('slide_active', slide_active, image_slide_template)))
+        if slide['type'] == 'image':
+            carousel_slides.append(templateSub('slide_src', slide['link'],
+                templateSub('slide_active', slide_active, image_slide_template)))
 
     # create the portfolio item
     p_item = templateSub('item_carousel_slides', '\n'.join(carousel_slides),
