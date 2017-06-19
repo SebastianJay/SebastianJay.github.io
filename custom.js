@@ -1,32 +1,52 @@
+// global mapping of id nums to video players
+var gVidPlayers = {}
+
+// This function will be called when the YT API is fully loaded
+function onYouTubeIframeAPIReady() {
+  $('.youtube-iframe').each(function() {
+    var mId = $(this).attr('id').split('-')[1];
+    var vidplayer = new YT.Player($(this).attr('id'), {
+      events: {
+        'onStateChange': vidStateChange
+      }
+    });
+    if (!(mId in gVidPlayers)) {
+      gVidPlayers[mId] = [];
+    }
+    gVidPlayers[mId].push(vidplayer);
+  })
+}
+
+//callback for state changes in YT video player
+function vidStateChange(ev) {
+  var mId = $(ev.target.a).attr('id').split('-')[1];
+  //if vid player is now playing/buffering/starting, pause the carousel
+  if (ev.data == YT.PlayerState.PLAYING || ev.data == YT.PlayerState.BUFFERING || ev.data == -1) {
+    $('#carousel-' + mId).carousel('pause');
+  }
+}
+
+// initialization routines on jQuery load
 $(function() {
   // initialize Bootstrap tooltips
   $('[data-toggle="tooltip"]').tooltip();
-
-  /*
-  // initialize Bootstrap carousel
-  $('.carousel').carousel({
-      interval: 5000 //period
-  });
-  */
 
   // portfolio item switching logic
   var activeId = '-1';
   $('#portfolio-nav .nav-link').not('.dropdown-toggle').each(function() {
     $(this).click(function() {
-      var idTok = $(this).attr('id').split('-');
-      var mId = idTok[idTok.length - 1];
+      var mId = $(this).attr('id').split('-')[1];
       if (mId != activeId) {
 
-        // adjust which links have active class
+        // adjust which links have active class, and adjust carousels
         if (activeId != '-1') {
           $('#link-' + activeId).removeClass('active');
           $('#link-' + activeId).parent().prev().removeClass('active');
+          $('#carousel-' + activeId).carousel('pause');
         }
         $('#link-' + mId).addClass('active');
         $('#link-' + mId).parent().prev().addClass('active');
-
-        // close dropdown list from which the link was chosen
-        $('[data-toggle="dropdown"]').parent().removeClass('show');
+        $('#carousel-' + mId).carousel('cycle');
 
         // fade to next item
         $(activeId == '-1' ? '#item-default' : '#item-' + activeId).fadeOut('slow', function() {
@@ -36,102 +56,34 @@ $(function() {
       }
     });
   });
-});
 
-//YouTube code taken from https://stackoverflow.com/a/7988536
-function getFrameID(id) {
-  var elem = document.getElementById(id);
-  if (elem) {
-    if (/^iframe$/i.test(elem.tagName)) return id; //Frame, OK
-    // else: Look for frame
-    var elems = elem.getElementsByTagName("iframe");
-    if (!elems.length) return null; //No iframe found, FAILURE
-    for (var i = 0; i < elems.length; i++) {
-      if (/^https?:\/\/(?:www\.)?youtube(?:-nocookie)?\.com(\/|$)/i.test(elems[i].src)) break;
-    }
-    elem = elems[i]; //The only, or the best iFrame
-    if (elem.id) return elem.id; //Existing ID, return it
-    // else: Create a new ID
-    do { //Keep postfixing `-frame` until the ID is unique
-      id += "-frame";
-    } while (document.getElementById(id));
-    elem.id = id;
-    return id;
-  }
-  // If no element, return null.
-  return null;
-}
-
-// Define YT_ready function.
-var YT_ready = (function() {
-  var onReady_funcs = [],
-    api_isReady = false;
-  /* @param func function     Function to execute on ready
-   * @param func Boolean      If true, all qeued functions are executed
-   * @param b_before Boolean  If true, the func will added to the first
-                               position in the queue*/
-  return function(func, b_before) {
-    if (func === true) {
-      api_isReady = true;
-      while (onReady_funcs.length) {
-        // Removes the first func from the array, and execute func
-        onReady_funcs.shift()();
-      }
-    } else if (typeof func == "function") {
-      if (api_isReady) func();
-      else onReady_funcs[b_before ? "unshift" : "push"](func);
-    }
-  };
-})();
-// This function will be called when the API is fully loaded
-function onYouTubePlayerAPIReady() {
-  YT_ready(true);
-}
-
-//callback for state changes in YT video player
-function vidStateChange(ev) {
-  //if vid player is now playing/buffering/starting, pause the carousel
-  if (ev.data == 1 || ev.data == 3 || ev.data == -1) {
-    $('#carousel-pictures').carousel('pause');
-  }
-  //if vid player has been paused or has ended, resume the carousel
-  if (ev.data == 2 || ev.data === 0) {
-    //NOTE cycling will occur even if user is already hovering over iframe when video pauses
-    //   might annoy user if they are trying to modify playback controls after pausing
-    $('#carousel-pictures').carousel('cycle');
-  }
-}
-
-(function() { // Closure, to not leak to the scope
-  //reference to YouTube API object
-  var vidplayer;
-
-  // Load YouTube Frame API, but only if video iframe is present
-  if ($('#youtube-iframe').length > 0) {
+  // load YouTube Frame API async, only if video iframe is present
+  if ($('.youtube-iframe').length > 0) {
     var s = document.createElement("script");
-    s.src = (location.protocol == 'https:' ? 'https' : 'http') + "://www.youtube.com/player_api";
+    s.src = "https://www.youtube.com/iframe_api";
     var before = document.getElementsByTagName("script")[0];
     before.parentNode.insertBefore(s, before);
-
-    YT_ready(function() {
-      var frameID = getFrameID('youtube-iframe');
-      if (frameID) {
-        vidplayer = new YT.Player(frameID, {
-          events: {
-            'onStateChange': vidStateChange
-          }
-        });
-      }
-    });
   }
 
-  //if video is playing while carousel slide changes, pause video automatically
-  $('#carousel-pictures').on('slide.bs.carousel', function(ev) {
-    if (vidplayer) {
-      var playerState = vidplayer.getPlayerState();
-      if (playerState == 1 || playerState == 3 || playerState == -1) {
-        vidplayer.pauseVideo();
+  $('.carousel').each(function() {
+    $(this).on('slide.bs.carousel', function(ev) {
+      // if video is playing while carousel slide changes, pause video automatically
+      var mId = $(this).attr('id').split('-')[1];
+      if (mId in gVidPlayers) {
+        for (var i = 0; i < gVidPlayers[mId].length; i+=1) {
+          var vidplayer = gVidPlayers[mId][i];
+          var playerState = vidplayer.getPlayerState();
+          if (playerState == YT.PlayerState.PLAYING || playerState == YT.PlayerState.BUFFERING || playerState == -1) {
+            vidplayer.pauseVideo();
+          }
+        }
       }
-    }
+
+      // resume auto cycling on slide movement (if carousel was paused before)
+      $(this).carousel('cycle');
+    });
+
+    // all carousels are paused initially (as they are hidden)
+    $(this).carousel('pause');
   });
-})();
+});

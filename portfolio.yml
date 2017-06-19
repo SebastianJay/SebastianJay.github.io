@@ -16,6 +16,9 @@ items:
     description:  "Built with a custom Python engine (only using external libraries tkinter for graphics and pygame for music) and markup language, this game tells the story of two individuals who are traveling to a sinkhole that threatens to consume their planet. Travel between towns, collect items, and solve puzzles to keep the plot moving."
     resources:
       -
+        type:     youtube
+        link:     https://www.youtube.com/embed/-CDj33Lqvns
+      -
         type:     image
         link:     img/ex1.png
       -
@@ -40,7 +43,7 @@ items:
     category:     games
     title:        Cakewalk
     subtitle:     2-Player Local Coop Platformer
-    description:  "This game was made for a UVA game design course and built with a TypeScript game engine which targets HTML5 canvas. Two players control a red and a blue character on a horizontally split screen; the characters have special interactions with objects of their color. To progress through the level, players need to switch places with each other: communication is key!"
+    description:  "This game was made for a UVA game design course and built with a homemade TypeScript game engine which targets HTML5 canvas. Two players control a red and a blue character on a horizontally split screen; the characters have special interactions with objects of their color. To progress through the level, players need to switch places with each other: communication is key!"
     resources:    {}
   -
     category:     games
@@ -52,7 +55,7 @@ items:
     category:     games
     title:        Yeah Music
     subtitle:     Doodle Jump with Sick Beats
-    description:  "A quick and simple game made using Unity for a hackathon. Try to stay on screen and touch platforms of different colors in order to trigger different musical loops that harmonize well together. Each run's complete track is a random selection of loops."
+    description:  "A quick and simple game made with Unity for a hackathon. Stay on screen and touch platforms of different colors in order to trigger different musical loops that harmonize well together. Each run's complete track is a random selection of premade loops."
     resources:    {}
   -
     category:     games
@@ -62,7 +65,49 @@ items:
     resources:    {}
   -
     category:     software
-    title:        What's Up?
-    subtitle:     It's a beautiful day
-    description:  "Yet another item."
+    title:        SGD at UVA Site
+    subtitle:     Portfolio on the LAMP stack
+    description:  "As the Student Game Developers' webmaster, I inherited a website with many static HTML pages; this wasn't convenient for maintenance purposes. We had access to the LAMP stack, so I added a DB schema and server side code, such that adding new content is as simple as inserting new rows. <em>NOTE</em>: I don't claim credit for the front-end work (which originates from a Bootstrap 3 theme)."
+    resources:    {}
+  -
+    category:     software
+    title:        SGD at UVA Wiki
+    subtitle:     Markdown to HTML Automation
+    description:  "As the Student Game Developers' vice president, I created a wiki to document our senior members' knowledge on tools and workflows for our future members' benefit. Content is written in Markdown (a simple format) and is automatically converted to HTML (with the help of Pandoc and TravisCI) to render nicely on GitHub Pages."
+    resources:    {}
+  -
+    category:     software
+    title:        Neural Style Music
+    subtitle:     Artsy Visualizer
+    description:  "Made for a UVA deep learning graphics course, this project adapts a <a href=\"https://github.com/jcjohnson/neural-style\">neural style algorithm</a> to create a visualizer that fluctuates between two styles based on the frequency content of the music that is playing."
+    resources:    {}
+  -
+    category:     hardware
+    title:        chECEkm8
+    subtitle:     Autonomous Chessboard
+    description:  "For the UVA computer engineering capstone, we created a system that allowed humans to play over-the-board chess against computers. The system is composed of a Reed switch circuit to detect human piece movements, a connection to a Stockfish chess engine to devise responses, and a motor-driven actuating magnet to execute those responses."
+    resources:    {}
+  -
+    category:     hardware
+    title:        Chess Logger
+    subtitle:     Shape Recognition on a Grid
+    description:  "Made for a UVA machine vision course, this project uses LabVIEW and NI image processing libraries to allow a webcam to observe a chess game and automatically generate a log of moves made. To keep piece recognition robust, we use custom cut pieces that are easily distinguishable from overhead."
+    resources:    {}
+  -
+    category:     hardware
+    title:        Cyclone
+    subtitle:     Embedded Systems Arcade Game
+    description:  "Made for a UVA embedded systems course, this project is modeled after the cyclone redemption game found in many arcades. It targets the Texas Instruments MSP430 microcontroller, and uses three different header boards: flash memory, 7-segment display and rotary encoder, and circular array of LEDs."
+    resources:    {}
+  -
+    category:     hardware
+    title:        Electrocardiogram
+    subtitle:     Signal Processing on Heartbeats
+    description:  "Made for a UVA signals and systems course, this project uses a printed circuit board to read electrical signals from one's heart and send them to the NI MyRIO for digital processing."
+    resources:    {}
+  -
+    category:     hardware
+    title:        2-LED Music
+    subtitle:     Simple PCB Visualizer
+    description:  "Made for a UVA electronics course, this project uses a printed circuit board to take an audio signal and light up two different LEDs based on the frequency content of the music that is playing (similar to the Neural Style Music Visualizer)."
     resources:    {}

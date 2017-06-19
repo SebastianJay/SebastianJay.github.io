@@ -21,6 +21,11 @@
   padding: 0.125em 0.5em;
 }
 
+.carousel-control-prev, .carousel-control-next {
+  top: 37.5%;
+  height: 25%;
+}
+
 /* formatting for the cv page */
 #cv-container h1, #cv-container h2 {
   text-align: center;         /* text-center */

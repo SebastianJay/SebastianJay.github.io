@@ -27,6 +27,11 @@ action_button_template = '<button type="button" class="btn btn-primary" data-tog
 image_slide_template = '<div class="carousel-item <!-- TEMPLATE: slide_active -->">\
   <img class="d-block img-fluid" src="<!-- TEMPLATE: slide_src -->" alt="image slide">\
 </div>'
+youtube_slide_template = '<div class="carousel-item embed-responsive embed-responsive-16by9 <!-- TEMPLATE: slide_active -->">\
+  <iframe id="player-<!-- TEMPLATE: item_id -->-<!-- TEMPLATE: player_num -->" class="youtube-iframe" type="text/html"\
+   src="<!-- TEMPLATE: slide_src -->?enablejsapi=1&rel=0" frameborder="0" allowfullscreen></iframe>\
+</div>'
+#&origin=https://sebastianjay.github.io
 
 fa_icons = {
     'github': 'fa-github',
@@ -63,11 +68,18 @@ for item in p_data['items']:
 
     # carousel slides
     carousel_slides = []
+    player_count = 0
     for slide in item['resources']:
         slide_active = 'active' if len(carousel_slides) == 0 else ''
         if slide['type'] == 'image':
             carousel_slides.append(templateSub('slide_src', slide['link'],
                 templateSub('slide_active', slide_active, image_slide_template)))
+        elif slide['type'] == 'youtube':
+            carousel_slides.append(templateSub('slide_src', slide['link'],
+                templateSub('slide_active', slide_active,
+                templateSub('item_id', str(item_counter),
+                templateSub('player_num', str(player_count), youtube_slide_template)))))
+            player_count += 1
 
     # create the portfolio item
     p_item = templateSub('item_carousel_slides', '\n'.join(carousel_slides),

@@ -4,3 +4,4 @@
 python Scripts/make_portfolio.py
 pandoc -w html -r markdown cv.md | python Scripts/make_cv.py
 python Scripts/make_index.py
+#python Scripts/make_build_pages.py

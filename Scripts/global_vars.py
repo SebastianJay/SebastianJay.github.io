@@ -8,10 +8,19 @@ PortfolioItemTemplatePath = 'templates/portfolio-item.template.html'
 PortfolioDataPath = 'portfolio.yml'
 CVTemplatePath = 'templates/cv.template.html'
 IndexTemplatePath = 'templates/index.template.html'
+BuildDirectories = [    # subdirectories for each web build
+    'Bounce',
+    'CubeWorld',
+    'MusicVisual',
+    'YeahMusic',
+]
+BuildTemplatePath = 'templates/build.template.html' # master template
+BuildSubTemplatePath = 'index.template.html'   # found in each subdirectory
 
 PortfolioOutputPath = 'portfolio.html'
 CVOutputPath = 'cv.html'
 IndexOutputPath = 'index.html'
+BuildOutputPath = 'index.html'  # for each subdirectory
 
 import re
 def templateSub(sid, repl, template):
