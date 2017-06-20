@@ -17,12 +17,25 @@ function onYouTubeIframeAPIReady() {
   })
 }
 
-//callback for state changes in YT video player
+// callback for state changes in YT video player
 function vidStateChange(ev) {
   var mId = $(ev.target.a).attr('id').split('-')[1];
   //if vid player is now playing/buffering/starting, pause the carousel
   if (ev.data == YT.PlayerState.PLAYING || ev.data == YT.PlayerState.BUFFERING || ev.data == -1) {
     $('#carousel-' + mId).carousel('pause');
+  }
+}
+
+// helper to pause videos for the item with given id
+function pauseVid(id) {
+  if (id in gVidPlayers) {
+    for (var i = 0; i < gVidPlayers[id].length; i+=1) {
+      var vidplayer = gVidPlayers[id][i];
+      var playerState = vidplayer.getPlayerState();
+      if (playerState == YT.PlayerState.PLAYING || playerState == YT.PlayerState.BUFFERING || playerState == -1) {
+        vidplayer.pauseVideo();
+      }
+    }
   }
 }
 
@@ -38,11 +51,12 @@ $(function() {
       var mId = $(this).attr('id').split('-')[1];
       if (mId != activeId) {
 
-        // adjust which links have active class, and adjust carousels
+        // adjust which links have active class, and adjust carousels, pause video if playing
         if (activeId != '-1') {
           $('#link-' + activeId).removeClass('active');
           $('#link-' + activeId).parent().prev().removeClass('active');
           $('#carousel-' + activeId).carousel('pause');
+          pauseVid(activeId);
         }
         $('#link-' + mId).addClass('active');
         $('#link-' + mId).parent().prev().addClass('active');
@@ -69,15 +83,7 @@ $(function() {
     $(this).on('slide.bs.carousel', function(ev) {
       // if video is playing while carousel slide changes, pause video automatically
       var mId = $(this).attr('id').split('-')[1];
-      if (mId in gVidPlayers) {
-        for (var i = 0; i < gVidPlayers[mId].length; i+=1) {
-          var vidplayer = gVidPlayers[mId][i];
-          var playerState = vidplayer.getPlayerState();
-          if (playerState == YT.PlayerState.PLAYING || playerState == YT.PlayerState.BUFFERING || playerState == -1) {
-            vidplayer.pauseVideo();
-          }
-        }
-      }
+      pauseVid(mId);
 
       // resume auto cycling on slide movement (if carousel was paused before)
       $(this).carousel('cycle');

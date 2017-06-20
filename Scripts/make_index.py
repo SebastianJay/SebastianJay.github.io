@@ -11,9 +11,11 @@ with open(MasterTemplatePath, 'r') as fin:
     m_template = fin.read()
 
 # build page
-index = templateSub('body', index_template,
-    templateSub('portfolio_active', '',
-    templateSub('cv_active', '', m_template)))
+index = templateSubN({
+    'body': index_template,
+    'portfolio_active': '',
+    'cv_active': ''
+}, m_template)
 
 # write to file
 with open(IndexOutputPath, 'w') as fout:

@@ -24,4 +24,10 @@ BuildOutputPath = 'index.html'  # for each subdirectory
 
 import re
 def templateSub(sid, repl, template):
-    return re.sub(r'<!--\s*TEMPLATE:\s*{0}\s*-->'.format(sid), repl, template)
+    return re.sub(r'<!--\s*TEMPLATE:\s*{0}\s*-->'.format(sid), str(repl), template)
+
+def templateSubN(dct, template):
+    final = template
+    for key in dct:
+        final = templateSub(key, dct[key], final)
+    return final

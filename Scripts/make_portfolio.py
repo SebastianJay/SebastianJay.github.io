@@ -56,15 +56,20 @@ item_counter = 0
 items = []
 for item in p_data['items']:
     # create the navigation link
-    nav_item = templateSub('item_title', item['title'], templateSub('item_id', str(item_counter), nav_item_template))
+    nav_item = templateSubN({
+        'item_title': item['title'],
+        'item_id': item_counter
+    }, nav_item_template)
     nav_snippets[item['category']].append(nav_item)
 
     # action buttons
     action_buttons = []
     for action in item['resources']:
         if action['type'] in list(fa_icons.keys()):
-            action_buttons.append(templateSub('button_icon', fa_icons[action['type']],
-                templateSub('button_tooltip', action['tooltip'] if 'tooltip' in action else tooltip_defaults[action['type']], action_button_template)))
+            action_buttons.append(templateSubN({
+                'button_icon': fa_icons[action['type']],
+                'button_tooltip': action['tooltip'] if 'tooltip' in action else tooltip_defaults[action['type']]
+            }, action_button_template))
 
     # carousel slides
     carousel_slides = []
@@ -72,22 +77,28 @@ for item in p_data['items']:
     for slide in item['resources']:
         slide_active = 'active' if len(carousel_slides) == 0 else ''
         if slide['type'] == 'image':
-            carousel_slides.append(templateSub('slide_src', slide['link'],
-                templateSub('slide_active', slide_active, image_slide_template)))
+            carousel_slides.append(templateSubN({
+                'slide_src': slide['link'],
+                'slide_active': slide_active
+            }, image_slide_template))
         elif slide['type'] == 'youtube':
-            carousel_slides.append(templateSub('slide_src', slide['link'],
-                templateSub('slide_active', slide_active,
-                templateSub('item_id', str(item_counter),
-                templateSub('player_num', str(player_count), youtube_slide_template)))))
+            carousel_slides.append(templateSubN({
+                'slide_src': slide['link'],
+                'slide_active': slide_active,
+                'item_id': item_counter,
+                'player_num': player_count
+            }, youtube_slide_template))
             player_count += 1
 
     # create the portfolio item
-    p_item = templateSub('item_carousel_slides', '\n'.join(carousel_slides),
-        templateSub('item_buttons', '\n'.join(action_buttons),
-        templateSub('item_description', item['description'],
-        templateSub('item_subtitle', item['subtitle'],
-        templateSub('item_title', item['title'],
-        templateSub('item_id', str(item_counter), p_item_template))))))
+    p_item = templateSubN({
+        'item_carousel_slides': '\n'.join(carousel_slides),
+        'item_buttons': '\n'.join(action_buttons),
+        'item_description': item['description'],
+        'item_subtitle': item['subtitle'],
+        'item_title': item['title'],
+        'item_id': item_counter
+    }, p_item_template)
 
     # save snippet and inc id counter
     items.append(p_item)
@@ -97,15 +108,21 @@ for item in p_data['items']:
 nav = ''
 for category in p_data['categories']:
     nav_list = '\n'.join(nav_snippets[category['id']])
-    nav += templateSub('category_items', nav_list,
-        templateSub('category_name', category['name'], nav_category_template)) + '\n'
+    nav += templateSubN({
+        'category_items': nav_list,
+        'category_name': category['name']
+    }, nav_category_template) + '\n'
 
 # build whole page
-p = templateSub('portfolio_items', '\n'.join(items),
-    templateSub('nav_links', nav, p_template))
-m = templateSub('body', p,
-    templateSub('portfolio_active', 'active',
-    templateSub('cv_active', '', m_template)))
+p = templateSubN({
+    'portfolio_items': '\n'.join(items),
+    'nav_links': nav
+}, p_template)
+m = templateSubN({
+    'body': p,
+    'portfolio_active': 'active',
+    'cv_active': ''
+}, m_template)
 
 # write to file
 with open(PortfolioOutputPath, 'w') as fout:

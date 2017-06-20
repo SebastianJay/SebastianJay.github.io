@@ -16,10 +16,11 @@ with open(MasterTemplatePath, 'r') as fin:
 cv_body = sys.stdin.read()
 
 # build page
-cv = templateSub('cv_content', cv_body, cv_template)
-m = templateSub('body', cv,
-    templateSub('portfolio_active', '',
-    templateSub('cv_active', 'active', m_template)))
+m = templateSubN({
+    'body': templateSubN({'cv_content': cv_body}, cv_template),
+    'portfolio_active': '',
+    'cv_active': 'active'
+}, m_template)
 
 # write to file
 with open(CVOutputPath, 'w') as fout:
