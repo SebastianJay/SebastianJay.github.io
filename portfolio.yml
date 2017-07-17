@@ -30,6 +30,10 @@ items:
       -
         type:     github
         link:     https://github.com/SebastianJay/Wilderness
+      -
+        type:     download
+        link:     http://sgd.cs.virginia.edu/games/Wilderness
+        tooltip:  Download Windows build
   -
     category:     games
     title:        Bounce
@@ -57,6 +61,10 @@ items:
       -
         type:     github
         link:     https://github.com/SebastianJay/Bounce-Game
+      -
+        type:     download
+        link:     http://sgd.cs.virginia.edu/games/Bounce.zip
+        tooltip:  Download Windows build
   -
     category:     games
     title:        Cakewalk
@@ -129,18 +137,49 @@ items:
       -
         type:     github
         link:     https://github.com/ErraticUnicorn/MOSH
+      -
+        type:     download
+        link:     http://sgd.cs.virginia.edu/games/SunsetHigh.zip
+        tooltip:  Download Windows build
   -
     category:     software
     title:        SGD at UVA Site
     subtitle:     Portfolio on the LAMP stack
     description:  "As the Student Game Developers' webmaster, I inherited a website with many static HTML pages; this wasn't convenient for maintenance purposes. We had access to the LAMP stack, so I added a DB schema and server side code, such that adding new content is as simple as inserting new rows. <em>NOTE</em>: I don't claim credit for the front-end work (which originates from a Bootstrap 3 theme)."
-    resources:    {}
+    resources:
+      -
+        type:     image
+        link:     img/sgdsite0.png
+      -
+        type:     image
+        link:     img/sgdsite1.png
+      -
+        type:     image
+        link:     img/sgdsite2.png
+      -
+        type:     external
+        link:     http://sgd.cs.virginia.edu
   -
     category:     software
     title:        SGD at UVA Wiki
     subtitle:     Markdown to HTML Automation
     description:  "As the Student Game Developers' vice president, I created a wiki to document our senior members' knowledge on tools and workflows for our future members' benefit. Content is written in Markdown (a simple format) and is automatically converted to HTML (with the help of Pandoc and TravisCI) to render nicely on GitHub Pages."
-    resources:    {}
+    resources:
+      -
+        type:     image
+        link:     img/sgdwiki0.png
+      -
+        type:     image
+        link:     img/sgdwiki1.png
+      -
+        type:     image
+        link:     img/sgdwiki2.png
+      -
+        type:     github
+        link:     https://github.com/UVASGD/sgd-docs
+      -
+        type:     external
+        link:     https://uvasgd.github.io/sgd-docs/README.html
   -
     category:     software
     title:        Neural Style Music

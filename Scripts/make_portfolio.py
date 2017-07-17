@@ -23,7 +23,8 @@ nav_category_template = '<li class="nav-item dropdown">\
   </div>\
 </li>'
 nav_item_template = '<a id="link-<!-- TEMPLATE: item_id -->" class="nav-link" href="#"><!-- TEMPLATE: item_title --></a>'
-action_button_template = '<button type="button" class="btn btn-primary" data-toggle="tooltip" title="<!-- TEMPLATE: button_tooltip -->"><i class="fa <!-- TEMPLATE: button_icon -->" aria-hidden="true"></i></button>'
+action_button_template = '<a href="<!-- TEMPLATE: button_link -->" target="<!-- TEMPLATE: button_target -->" class="btn btn-primary" data-toggle="tooltip" title="<!-- TEMPLATE: button_tooltip -->">\
+<i class="fa <!-- TEMPLATE: button_icon -->" aria-hidden="true"></i></a>'
 image_slide_template = '<div class="carousel-item <!-- TEMPLATE: slide_active -->">\
   <img class="d-block img-fluid" src="<!-- TEMPLATE: slide_src -->" alt="image slide">\
 </div>'
@@ -68,6 +69,8 @@ for item in p_data['items']:
         if action['type'] in list(fa_icons.keys()):
             action_buttons.append(templateSubN({
                 'button_icon': fa_icons[action['type']],
+                'button_link': action['link'],
+                'button_target': '_blank' if action['type'] not in ['download', 'play'] else '_self',
                 'button_tooltip': action['tooltip'] if 'tooltip' in action else tooltip_defaults[action['type']]
             }, action_button_template))
 
