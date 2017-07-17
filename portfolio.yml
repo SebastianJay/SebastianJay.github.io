@@ -16,53 +16,119 @@ items:
     description:  "Built with a custom Python engine (only using external libraries tkinter for graphics and pygame for music) and markup language, this game tells the story of two individuals who are traveling to a sinkhole that threatens to consume their planet. Travel between towns, collect items, and solve puzzles to keep the plot moving."
     resources:
       -
-        type:     youtube
-        link:     https://www.youtube.com/embed/-CDj33Lqvns
+        type:     image
+        link:     img/wilderness0.png
       -
         type:     image
-        link:     img/ex1.png
+        link:     img/wilderness1.png
       -
         type:     image
-        link:     img/ex2.png
+        link:     img/wilderness2.png
       -
         type:     image
-        link:     img/ex3.png
+        link:     img/wilderness3.png
       -
         type:     github
-        link:     https://github.com/SebastianJay/SebastianJay.github.io
-      -
-        type:     external
-        link:     https://github.com/SebastianJay/SebastianJay.github.io
+        link:     https://github.com/SebastianJay/Wilderness
   -
     category:     games
     title:        Bounce
     subtitle:     Quirky 2D Platformer
     description:  "Built with Unity, this 2D platformer follows the journey of Bob, a disembodied head searching for the remnants of his body. Chat with and aid townspeople, acquire collectibles and upgrades, and traverse various locales: city, jungle, even outer space!"
-    resources:    {}
+    resources:
+      -
+        type:     image
+        link:     img/bounce0.png
+      -
+        type:     image
+        link:     img/bounce1.png
+      -
+        type:     image
+        link:     img/bounce2.png
+      -
+        type:     image
+        link:     img/bounce3.png
+      -
+        type:     image
+        link:     img/bounce4.png
+      -
+        type:     image
+        link:     img/bounce5.png
+      -
+        type:     github
+        link:     https://github.com/SebastianJay/Bounce-Game
   -
     category:     games
     title:        Cakewalk
     subtitle:     2-Player Local Coop Platformer
     description:  "This game was made for a UVA game design course and built with a homemade TypeScript game engine which targets HTML5 canvas. Two players control a red and a blue character on a horizontally split screen; the characters have special interactions with objects of their color. To progress through the level, players need to switch places with each other: communication is key!"
-    resources:    {}
+    resources:
+      -
+        type:     image
+        link:     img/cakewalk0.png
+      -
+        type:     image
+        link:     img/cakewalk1.png
+      -
+        type:     image
+        link:     img/cakewalk2.png
+      -
+        type:     github
+        link:     https://github.com/SebastianJay/UVA-Game-Design
   -
     category:     games
     title:        CubeWorld
     subtitle:     6-Sided Walking Simulator
     description:  "Made with WebGL (with no major libraries or frameworks) for a UVA graphics course, this 3D first person game allows you to walk on the inside of a six sided cube featuring different biomes."
-    resources:    {}
+    resources:
+      -
+        type:     image
+        link:     img/cubeworld0.png
+      -
+        type:     image
+        link:     img/cubeworld1.png
+      -
+        type:     image
+        link:     img/cubeworld2.png
+      -
+        type:     github
+        link:     https://github.com/SebastianJay/CubeWorld
   -
     category:     games
     title:        Yeah Music
     subtitle:     Doodle Jump with Sick Beats
     description:  "A quick and simple game made with Unity for a hackathon. Stay on screen and touch platforms of different colors in order to trigger different musical loops that harmonize well together. Each run's complete track is a random selection of premade loops."
-    resources:    {}
+    resources:
+      -
+        type:     image
+        link:     img/yeahmusic0.png
+      -
+        type:     image
+        link:     img/yeahmusic1.png
+      -
+        type:     image
+        link:     img/yeahmusic2.png
+      -
+        type:     github
+        link:     https://github.com/josephbaik/uva.hax0rs
   -
     category:     games
     title:        Sunset High
     subtitle:     Murder Mystery RPG
     description:  "One of the first games I worked on! I developed much of the code within MonoGame for a top-down RPG that's set in a high school; unfortunately the end product remains a prototype. Talk to NPCs with branching dialogue, perform quests to infiltrate cliques, pickpocket items from other students, and even fight a boss!"
-    resources:    {}
+    resources:
+      -
+        type:     image
+        link:     img/sunsethigh0.png
+      -
+        type:     image
+        link:     img/sunsethigh1.png
+      -
+        type:     image
+        link:     img/sunsethigh2.png
+      -
+        type:     github
+        link:     https://github.com/ErraticUnicorn/MOSH
   -
     category:     software
     title:        SGD at UVA Site
@@ -80,34 +146,85 @@ items:
     title:        Neural Style Music
     subtitle:     Artsy Visualizer
     description:  "Made for a UVA deep learning graphics course, this project adapts a <a href=\"https://github.com/jcjohnson/neural-style\">neural style algorithm</a> to create a visualizer that fluctuates between two styles based on the frequency content of the music that is playing."
-    resources:    {}
+    resources:
+      -
+        type:     image
+        link:     img/neuralmusic0.png
+      -
+        type:     image
+        link:     img/neuralmusic1.png
+      -
+        type:     image
+        link:     img/neuralmusic2.png
+      -
+        type:     github
+        link:     https://github.com/SebastianJay/NeuralStyle-Music
   -
     category:     hardware
     title:        chECEkm8
     subtitle:     Autonomous Chessboard
     description:  "For the UVA computer engineering capstone, we created a system that allowed humans to play over-the-board chess against computers. The system is composed of a Reed switch circuit to detect human piece movements, a connection to a Stockfish chess engine to devise responses, and a motor-driven actuating magnet to execute those responses."
-    resources:    {}
+    resources:
+      -
+        type:     youtube
+        link:     https://www.youtube.com/embed/8bZ6Lw5DjGU
+      -
+        type:     image
+        link:     img/checekm80.png
+      -
+        type:     image
+        link:     img/checekm81.png
+      -
+        type:     image
+        link:     img/checekm82.png
+      -
+        type:     image
+        link:     img/checekm83.png
+      -
+        type:     github
+        link:     https://github.com/SebastianJay/chECEckm8
   -
     category:     hardware
     title:        Chess Logger
     subtitle:     Shape Recognition on a Grid
     description:  "Made for a UVA machine vision course, this project uses LabVIEW and NI image processing libraries to allow a webcam to observe a chess game and automatically generate a log of moves made. To keep piece recognition robust, we use custom cut pieces that are easily distinguishable from overhead."
-    resources:    {}
+    resources:
+      -
+        type:     youtube
+        link:     https://www.youtube.com/embed/oEiwm47Tykk
+      -
+        type:     github
+        link:     https://github.com/SebastianJay/Chess-Logger
   -
     category:     hardware
     title:        Cyclone
     subtitle:     Embedded Systems Arcade Game
     description:  "Made for a UVA embedded systems course, this project is modeled after the cyclone redemption game found in many arcades. It targets the Texas Instruments MSP430 microcontroller, and uses three different header boards: flash memory, 7-segment display and rotary encoder, and circular array of LEDs."
-    resources:    {}
+    resources:
+      -
+        type:     youtube
+        link:     https://www.youtube.com/embed/iDDrdj2gOZ8
   -
     category:     hardware
     title:        Electrocardiogram
     subtitle:     Signal Processing on Heartbeats
     description:  "Made for a UVA signals and systems course, this project uses a printed circuit board to read electrical signals from one's heart and send them to the NI MyRIO for digital processing."
-    resources:    {}
+    resources:
+      -
+        type:     youtube
+        link:     https://www.youtube.com/embed/1IDlTAr23Gs
+      -
+        type:     image
+        link:     img/ecg0.png
+      -
+        type:     image
+        link:     img/ecg1.png
   -
     category:     hardware
     title:        2-LED Music
     subtitle:     Simple PCB Visualizer
     description:  "Made for a UVA electronics course, this project uses a printed circuit board to take an audio signal and light up two different LEDs based on the frequency content of the music that is playing (similar to the Neural Style Music Visualizer)."
-    resources:    {}
+    resources:
+      -
+        type:     youtube
+        link:     https://www.youtube.com/embed/cUGfNYyqKtA
