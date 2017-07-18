@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <title>Jay Sebastian | Cakewalk</title>
+  <link rel="icon" type="image/vnd.microsoft.icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="../custom.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="../custom.js"></script>
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-light navbar-toggleable-md bg-faded sticky-top mb-4">
+    <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="../index.html">Jay Sebastian</a>
+    <div id="navbar-content" class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="../portfolio.html">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="../cv.html">CV</a>
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link fa fa-2x fa-github" href="https://github.com/SebastianJay" target="_blank"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fa fa-2x fa-soundcloud" href="https://soundcloud.com/jaysebastian" target="_blank"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fa fa-2x fa-linkedin" href="https://linkedin.com/in/jay-sebastian-4a3910105" target="_blank"></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- build div -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <link rel="stylesheet" href="style.css">
+
+<div class="game-container">
+  <canvas id="game" width="1280" height="720">
+    <p>Your browser doesn't support canvas.</p>
+  </canvas>
+</div>
+
+<script type="text/javascript" src="dist/bundle.js"></script>
+
+<br/>
+<br/>
+
+<div class="text-center">
+  <a data-toggle="collapse" href="#build-info" aria-expanded="false" aria-controls="build-info">
+    Toggle info
+  </a>
+</div>
+
+<div id="build-info" class="collapse">
+  <div class="card card-block">
+    <h3>Overview</h3>
+    <p>Grab a friend and collaborate to race to the finish! One player will control
+      the red character while the other will control the blue one. Each character interacts
+      with the environment differently, but characters have the ability to swap places to
+      leverage their "strengths." There are a total of five exciting and challenging levels.
+      <em>Note</em>: This game was made with a homemade Typescript engine, and as such will
+      likely push the browser to the limit in an effort to hit 60 FPS. It is best not to
+      have anything else constraining the CPU when you play.</p>
+
+    <h3>Controls</h3>
+    <p>It is recommended to play with gamepads. Plug two Xbox controllers in and P1 will
+      control red and P2 will control blue. If you lack controllers, a keyboard will work as well.</p>
+    <h5>Xbox gamepad controls</h5>
+    <ul>
+      <li>Left joystick: Run</li>
+      <li>A: Jump, and confirm menu selection</li>
+      <li>X: Swap</li>
+      <li>Start: Toggle menu</li>
+      <li>D-Pad: Browse menu options</li>
+    </ul>
+    <h5>Keyboard controls</h5>
+    <ul>
+      <li>Arrow Keys: P1 Run and Jump, and browse menu options</li>
+      <li>Enter (i.e. Return): P1 Swap, and confirm menu selection</li>
+      <li>WASD: P2 Run and Jump</li>
+      <li>Space: P2 Swap</li>
+      <li>Escape: Toggle menu</li>
+    </ul>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+<br/>
+<footer class="text-center mb-3">
+  <a href="../portfolio.html">Return to Portfolio</a>
+</footer>
+
+
+</body>
+
+</html>

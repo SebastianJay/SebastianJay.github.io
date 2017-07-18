@@ -19,7 +19,9 @@ cv_body = sys.stdin.read()
 m = templateSubN({
     'body': templateSubN({'cv_content': cv_body}, cv_template),
     'portfolio_active': '',
-    'cv_active': 'active'
+    'cv_active': 'active',
+    'path_prefix': '',
+    'title': 'CV'
 }, m_template)
 
 # write to file

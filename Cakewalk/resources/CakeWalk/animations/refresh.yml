@@ -1,0 +1,9 @@
+swap:
+  startRowPixel: 0
+  height: 32
+  width: 32
+  numStates: 4
+  framesPerState: 44
+  endBehavior:
+    name: stayInState
+default: swap

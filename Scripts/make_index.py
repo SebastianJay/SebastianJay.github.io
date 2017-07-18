@@ -14,7 +14,9 @@ with open(MasterTemplatePath, 'r') as fin:
 index = templateSubN({
     'body': index_template,
     'portfolio_active': '',
-    'cv_active': ''
+    'cv_active': '',
+    'path_prefix': '',
+    'title': 'Home'
 }, m_template)
 
 # write to file

@@ -1,0 +1,65 @@
+walk:
+  startRowPixel: 112
+  height: 56
+  width: 42
+  numStates: 5
+  framesPerState: 5
+  endBehavior:
+    name: loop
+idle:
+  startRowPixel: 0
+  height: 56
+  width: 42
+  numStates: 4
+  framesPerState: 12
+  endBehavior:
+    name: loop
+walk_left:
+  startRowPixel: 168
+  height: 56
+  width: 42
+  numStates: 5
+  framesPerState: 5
+  endBehavior:
+    name: loop
+idle_left:
+  startRowPixel: 56
+  height: 56
+  width: 42
+  numStates: 4
+  framesPerState: 12
+  endBehavior:
+    name: loop
+jump:
+  startRowPixel: 224
+  height: 56
+  width: 42
+  numStates: 4
+  framesPerState: 3
+  endBehavior:
+    name: stayInState
+jump_left:
+  startRowPixel: 280
+  height: 56
+  width: 42
+  numStates: 4
+  framesPerState: 3
+  endBehavior:
+    name: stayInState
+burn:
+  startRowPixel: 336
+  height: 56
+  width: 42
+  numStates: 5
+  framesPerState: 5
+  endBehavior:
+    name: stayInState
+squash:
+  startRowPixel: 392
+  height: 56
+  width: 42
+  numStates: 5
+  framesPerState: 4
+  endBehavior:
+    name: stayInState
+default: idle

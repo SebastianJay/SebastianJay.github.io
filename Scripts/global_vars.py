@@ -9,10 +9,10 @@ PortfolioDataPath = 'portfolio.yml'
 CVTemplatePath = 'templates/cv.template.html'
 IndexTemplatePath = 'templates/index.template.html'
 BuildDirectories = [    # subdirectories for each web build
-    'Bounce',
+    'Cakewalk',
     'CubeWorld',
-    'MusicVisual',
-    'YeahMusic',
+    'NeuralMusic',
+    'YeahMusic'
 ]
 BuildTemplatePath = 'templates/build.template.html' # master template
 BuildSubTemplatePath = 'index.template.html'   # found in each subdirectory

@@ -124,7 +124,9 @@ p = templateSubN({
 m = templateSubN({
     'body': p,
     'portfolio_active': 'active',
-    'cv_active': ''
+    'cv_active': '',
+    'path_prefix': '',
+    'title': 'Portfolio'
 }, m_template)
 
 # write to file

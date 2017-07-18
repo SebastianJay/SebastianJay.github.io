@@ -21,7 +21,9 @@ for directory in BuildDirectories:
     build = templateSubN({
         'body': templateSubN({'build_content': build_sub_template}, build_template),
         'portfolio_active': 'active',
-        'cv_active': ''
+        'cv_active': '',
+        'path_prefix': '../',
+        'title': directory      # TODO use "readable name" rather than directory name
     }, m_template)
 
     # write the file

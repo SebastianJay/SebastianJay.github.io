@@ -22,7 +22,7 @@ function createCollectibles()
 		//todo: fix logic
 		while (mapPropertyStack[i][ind1*tileNum + ind2] != '') {
 			ind1 = randInt(5, 16);
-			ind2 = randInt(5, 16);			
+			ind2 = randInt(5, 16);
 		}
 		var hpos = elevations[ind1*tileNum + ind2];
 		var sign = 1;
@@ -53,7 +53,7 @@ function drawCollectibles() {
 	for (var i = 0; i < collectWorldPosStack.length; i++) {
 		if (collectFound[i])
 			continue;
-		
+
 		var radRatio = collectRadius / sphereRadius / 1.3;
 		drawSphere(collectWorldPosStack[i], collectWorldRotAngleStack[i], collectWorldRotAxisStack[i], [radRatio, radRatio, radRatio], 12+i);
 	}
@@ -64,7 +64,6 @@ function checkCollisionCollectibles() {
 		if (collectFound[i])
 			continue;
 		var posVec = collectWorldPosStack[i];
-		//console.log(posVec[0] + ' ' + posVec[1] + ' ' + posVec[2]);
 		if ( ((xPos - posVec[0])*(xPos - posVec[0]) + (yPos - posVec[1])*(yPos - posVec[1]) + (zPos - posVec[2])*(zPos - posVec[2])) < collectRadius*collectRadius ) {
 			collectFound[i] = true;
 			collectiblesRemaining -= 1;

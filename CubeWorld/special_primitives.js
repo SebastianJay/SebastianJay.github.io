@@ -43,7 +43,7 @@ function createSphere()
 	var vertexPositionData = [];
 	var normalData = [];
 	var textureCoordData = [];
-		
+
 	for (var latNumber=0; latNumber <= sphereLatitudeBands; latNumber++) {
 		var theta = latNumber * Math.PI / sphereLatitudeBands;
 		var sinTheta = Math.sin(theta);
@@ -67,7 +67,7 @@ function createSphere()
 			textureCoordData.push(v);
 			vertexPositionData.push(sphereRadius * x);
 			vertexPositionData.push(sphereRadius * y);
-			vertexPositionData.push(sphereRadius * z);			
+			vertexPositionData.push(sphereRadius * z);
 		}
 	}
 
@@ -128,7 +128,7 @@ function createCylinder()
 	textureCoordData.push(0, 0);
 	textureCoordData.push(0, 1);
 	vertexPositionData.push(cylinderRadius * prevCosTheta, 0, cylinderRadius * prevSinTheta);
-	vertexPositionData.push(cylinderRadius * prevCosTheta, cylinderHeight, cylinderRadius * prevSinTheta);	
+	vertexPositionData.push(cylinderRadius * prevCosTheta, cylinderHeight, cylinderRadius * prevSinTheta);
 	for (var longNumber=1; longNumber <= cylinderLongitudeBands; longNumber++) {
 		var theta = longNumber * 2 * Math.PI / cylinderLongitudeBands;
 		var sinTheta = Math.sin(theta);
@@ -150,22 +150,22 @@ function createCylinder()
 		textureCoordData.push(1);
 		vertexPositionData.push(cylinderRadius * x);
 		vertexPositionData.push(0);
-		vertexPositionData.push(cylinderRadius * z);			
+		vertexPositionData.push(cylinderRadius * z);
 		vertexPositionData.push(cylinderRadius * x);
 		vertexPositionData.push(cylinderHeight);
-		vertexPositionData.push(cylinderRadius * z);			
-		
+		vertexPositionData.push(cylinderRadius * z);
+
 		indexData.push((longNumber-1)*2);
 		indexData.push((longNumber-1)*2 + 1);
 		indexData.push((longNumber)*2);
 		indexData.push((longNumber)*2 + 1);
 		indexData.push((longNumber)*2);
 		indexData.push((longNumber-1)*2 + 1);
-		
+
 		prevSinTheta = sinTheta;
 		prevCosTheta = cosTheta;
 	}
-	
+
 	cylinderNormalBuffer = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, cylinderNormalBuffer);
 	gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(normalData), gl.STATIC_DRAW);
@@ -188,16 +188,16 @@ function createCylinder()
 	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cylinderVertexIndexBuffer);
 	gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indexData), gl.STATIC_DRAW);
 	cylinderVertexIndexBuffer.itemSize = 1;
-	cylinderVertexIndexBuffer.numItems = indexData.length;	
+	cylinderVertexIndexBuffer.numItems = indexData.length;
 }
 
 function createCone()
-{	
+{
 	var vertexPositionData = [];
 	var normalData = [];
 	var textureCoordData = [];
 	var indexData = [];
-	
+
 	for (var latNumber=0; latNumber <= coneLatitudeBands; latNumber++) {
 		var midHeight = latNumber * coneHeight / coneLatitudeBands;
 		var midRadius = (coneHeight - midHeight) * coneRadius / coneHeight;
@@ -216,7 +216,7 @@ function createCone()
 			var ny = coneRadius/coneHeight;
 			var nz = z*coneHeight/coneRadius;
 			var nmag = Math.sqrt(nx*nx + ny*ny + nz*nz);
-			
+
 			normalData.push(nx/nmag);
 			normalData.push(ny/nmag);
 			normalData.push(nz/nmag);
@@ -224,7 +224,7 @@ function createCone()
 			textureCoordData.push(v);
 			vertexPositionData.push(x);
 			vertexPositionData.push(y);
-			vertexPositionData.push(z);			
+			vertexPositionData.push(z);
 		}
 	}
 
@@ -264,7 +264,7 @@ function createCone()
 	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, coneVertexIndexBuffer);
 	gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indexData), gl.STATIC_DRAW);
 	coneVertexIndexBuffer.itemSize = 1;
-	coneVertexIndexBuffer.numItems = indexData.length;	
+	coneVertexIndexBuffer.numItems = indexData.length;
 }
 
 function drawSphere(translateVec, rotateAngle, rotateVec, scaleVec, tex_ind) {
@@ -283,11 +283,11 @@ function drawCone(translateVec, rotateAngle, rotateVec, scaleVec, tex_ind) {
 					translateVec, rotateAngle, rotateVec, scaleVec, tex_ind);
 }
 
-function drawSolidHelper(posBuffer, normBuffer, texBuffer, vertexIndexBuffer, 
+function drawSolidHelper(posBuffer, normBuffer, texBuffer, vertexIndexBuffer,
 						translateVec, rotateAngle, rotateVec, scaleVec, tex_ind) {
 	var localMat = mat4.create();
 	mat4.identity(localMat);
-	
+
 	mat4.translate(localMat, translateVec);
 	mat4.rotate(localMat, degToRad(rotateAngle), rotateVec);
 	mat4.scale(localMat, scaleVec);
@@ -296,7 +296,7 @@ function drawSolidHelper(posBuffer, normBuffer, texBuffer, vertexIndexBuffer,
 
 	mat4.multiply(mvMatrix, localMat, mvMatrix);
 	//mat4.multiply(localMat, mvMatrix, mvMatrix);
-	
+
 	gl.activeTexture(gl.TEXTURE0);
 	gl.bindTexture(gl.TEXTURE_2D, textureStack[tex_ind]);
 	gl.uniform1i(shaderProgram.samplerUniform, 0);
@@ -316,10 +316,10 @@ function drawSolidHelper(posBuffer, normBuffer, texBuffer, vertexIndexBuffer,
 	gl.uniform3fv(shaderProgram.directionalColorUniform, dirLightColorFlat);
 	gl.uniform3fv(shaderProgram.pointLightingPositionUniform, pointLightPositionFlat);
 	gl.uniform3fv(shaderProgram.pointLightingColorUniform, pointLightColorFlat);
-	
+
 	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, vertexIndexBuffer);
 	setMatrixUniforms();
-	gl.drawElements(gl.TRIANGLES, vertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);	
-	
-	mvPopMatrix();	
+	gl.drawElements(gl.TRIANGLES, vertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+
+	mvPopMatrix();
 }

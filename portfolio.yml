@@ -83,6 +83,10 @@ items:
       -
         type:     github
         link:     https://github.com/SebastianJay/UVA-Game-Design
+      -
+        type:     play
+        link:     Cakewalk/index.html
+        tooltip:  Play Cakewalk!
   -
     category:     games
     title:        CubeWorld
@@ -101,6 +105,10 @@ items:
       -
         type:     github
         link:     https://github.com/SebastianJay/CubeWorld
+      -
+        type:     play
+        link:     CubeWorld/index.html
+        tooltip:  Play CubeWorld!
   -
     category:     games
     title:        Yeah Music
@@ -119,6 +127,10 @@ items:
       -
         type:     github
         link:     https://github.com/josephbaik/uva.hax0rs
+      -
+        type:     play
+        link:     YeahMusic/index.html
+        tooltip:  Play Yeah Music!
   -
     category:     games
     title:        Sunset High
@@ -198,6 +210,10 @@ items:
       -
         type:     github
         link:     https://github.com/SebastianJay/NeuralStyle-Music
+      -
+        type:     play
+        link:     NeuralMusic/index.html
+        tooltip:  See visualizer in action
   -
     category:     hardware
     title:        chECEkm8

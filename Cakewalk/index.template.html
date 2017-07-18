@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="style.css">
+
+<div class="game-container">
+  <canvas id="game" width="1280" height="720">
+    <p>Your browser doesn't support canvas.</p>
+  </canvas>
+</div>
+
+<script type="text/javascript" src="dist/bundle.js"></script>
+
+<br/>
+<br/>
+
+<div class="text-center">
+  <a data-toggle="collapse" href="#build-info" aria-expanded="false" aria-controls="build-info">
+    Toggle Info
+  </a>
+</div>
+
+<div id="build-info" class="collapse">
+  <div class="card card-block">
+    <h3>Overview</h3>
+    <p>Grab a friend and collaborate to race to the finish! One player will control
+      the red character while the other will control the blue one. Each character interacts
+      with the environment differently, but characters have the ability to swap places to
+      leverage their "strengths." There are a total of five exciting and challenging levels.
+      <em>Note</em>: This game was made with a homemade Typescript engine, and as such will
+      likely push the browser to the limit in an effort to hit 60 FPS. It is best not to
+      have anything else constraining the CPU when you play.</p>
+
+    <h3>Controls</h3>
+    <p>It is recommended to play with gamepads. Plug two Xbox controllers in and P1 will
+      control red and P2 will control blue. If you lack controllers, a keyboard will work as well.</p>
+    <h5>Xbox gamepad controls</h5>
+    <ul>
+      <li>Left joystick: Run</li>
+      <li>A: Jump, and confirm menu selection</li>
+      <li>X: Swap</li>
+      <li>Start: Toggle menu</li>
+      <li>D-Pad: Browse menu options</li>
+    </ul>
+    <h5>Keyboard controls</h5>
+    <ul>
+      <li>Arrow Keys: P1 Run and Jump, and browse menu options</li>
+      <li>Enter (i.e. Return): P1 Swap, and confirm menu selection</li>
+      <li>WASD: P2 Run and Jump</li>
+      <li>Space: P2 Swap</li>
+      <li>Escape: Toggle menu</li>
+    </ul>
+  </div>
+</div>

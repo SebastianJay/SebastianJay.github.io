@@ -46,7 +46,7 @@ function checkCollisionGravity(xpos1, ypos1, zpos1) {
 		}
 		ipos = yPos;
 		jpos = zPos;
-		hpos = xpos1;		
+		hpos = xpos1;
 	} else if (gravZ < 0 || gravZ > 0) {
 		if (gravZ < 0) {
 			groundElevations = elevationStack[4];
@@ -60,12 +60,12 @@ function checkCollisionGravity(xpos1, ypos1, zpos1) {
 		jpos = yPos;
 		hpos = zpos1;
 	}
-	
+
 	for (i = 0; i < tileNum; i++) {
 		for (j = 0; j < tileNum; j++) {
 			if (ipos+epsilon > base + i*tileLength && ipos-epsilon < base + (i+1)*tileLength
 				&& jpos+epsilon > base + j*tileLength && jpos-epsilon < base + (j+1)*tileLength) {
-				
+
 				if (gravY < 0 || gravX < 0 || gravZ < 0) {
 					if (hpos-height < groundElevations[i*tileNum + j] && properties[i*tileNum + j] != 'hole') {
 						flag = true;
@@ -82,7 +82,7 @@ function checkCollisionGravity(xpos1, ypos1, zpos1) {
 		if (flag)
 			break;
 	}
-	
+
 	if (flag) {
 		var sign = 1;
 		if (gravY > 0 || gravX > 0 || gravZ > 0)
@@ -91,8 +91,8 @@ function checkCollisionGravity(xpos1, ypos1, zpos1) {
 		if (properties[i*tileNum + j] == 'fire') {
 			healthPoints -= 1.3;
 		} else if (properties[i*tileNum + j] == 'water') {
-			//healthPoints -= 0.7;
-			//todo: 
+			healthPoints -= 0.03;
+			//todo:
 			if (gravZ < 0 || gravZ > 0)
 				retHeight = zPos - sign*0.03;
 		}
@@ -105,9 +105,6 @@ function checkCollisionGravity(xpos1, ypos1, zpos1) {
 	}
 	return [true];
 }
-
-
-
 
 function checkCollisionGeneral(xpos1, ypos1, zpos1) {
 	var groundElevations;
@@ -163,16 +160,16 @@ function checkCollisionGeneral(xpos1, ypos1, zpos1) {
 		jpos = ypos1;
 		hpos = zpos1;
 	}
-	
+
 	if (ipos < base+wallDist || ipos > base + cubeSideLength -wallDist || jpos < base +wallDist || jpos > base + cubeSideLength - wallDist) {
 		if (gravY < 0 || gravY > 0)
 			return [false, Math.min(Math.max(ipos, base+wallDist), base+cubeSideLength-wallDist), hpos, Math.min(Math.max(jpos, base+wallDist), base+cubeSideLength-wallDist) ]
 		if (gravX < 0 || gravX > 0)
-			return [false, hpos, Math.min(Math.max(ipos, base+wallDist), base+cubeSideLength-wallDist), Math.min(Math.max(jpos, base+wallDist), base+cubeSideLength-wallDist) ]	
+			return [false, hpos, Math.min(Math.max(ipos, base+wallDist), base+cubeSideLength-wallDist), Math.min(Math.max(jpos, base+wallDist), base+cubeSideLength-wallDist) ]
 		if (gravZ < 0 || gravZ > 0)
-			return [false, Math.min(Math.max(ipos, base+wallDist), base+cubeSideLength-wallDist), Math.min(Math.max(jpos, base+wallDist), base+cubeSideLength-wallDist), hpos ]			
-	} 
-	
+			return [false, Math.min(Math.max(ipos, base+wallDist), base+cubeSideLength-wallDist), Math.min(Math.max(jpos, base+wallDist), base+cubeSideLength-wallDist), hpos ]
+	}
+
 	for (i = 0; i < tileNum; i++) {
 		for (j = 0; j < tileNum; j++) {
 			if (ipos+epsilon > base + i*tileLength && ipos-epsilon < base + (i+1)*tileLength
@@ -182,51 +179,51 @@ function checkCollisionGeneral(xpos1, ypos1, zpos1) {
 					if (hpos-height < groundElevations[i*tileNum + j] || properties[i*tileNum + j] == 'tree' || properties[i*tileNum + j] == 'pole') {
 						flag = true;
 						break;
-					} else if (iPos+epsilon < base + i*tileLength && jPos+epsilon < base+j*tileLength && 
+					} else if (iPos+epsilon < base + i*tileLength && jPos+epsilon < base+j*tileLength &&
 						(hpos-height < groundElevations[i*tileLength+j+1] || hpos-height < groundElevations[(i+1)*tileLength+j])) {
 						flag = true;
 						break;
-					} else if (iPos-epsilon > base + (i+1)*tileLength && jPos-epsilon > base+(j+1)*tileLength && 
+					} else if (iPos-epsilon > base + (i+1)*tileLength && jPos-epsilon > base+(j+1)*tileLength &&
 						(hpos-height < groundElevations[i*tileLength+j-1] || hpos-height < groundElevations[(i-1)*tileLength+j])) {
 						flag = true;
 						break;
-					} else if (iPos+epsilon < base + i*tileLength && jPos-epsilon > base+(j+1)*tileLength && 
+					} else if (iPos+epsilon < base + i*tileLength && jPos-epsilon > base+(j+1)*tileLength &&
 						(hpos-height < groundElevations[i*tileLength+j+1] || hpos-height < groundElevations[(i-1)*tileLength+j])) {
 						flag = true;
 						break;
-					} else if (iPos-epsilon > base + (i+1)*tileLength && jPos+epsilon < base+j*tileLength && 
+					} else if (iPos-epsilon > base + (i+1)*tileLength && jPos+epsilon < base+j*tileLength &&
 						(hpos-height < groundElevations[i*tileLength+j-1] || hpos-height < groundElevations[(i+1)*tileLength+j])) {
 						flag = true;
 						break;
-					}				
+					}
 				} else {
 					if (hpos+height > groundElevations[i*tileNum + j]) {
 						flag = true;
 						break;
-					} else if (iPos+epsilon < base + i*tileLength && jPos+epsilon < base+j*tileLength && 
+					} else if (iPos+epsilon < base + i*tileLength && jPos+epsilon < base+j*tileLength &&
 						(hpos+height > groundElevations[i*tileLength+j+1] || hpos+height > groundElevations[(i+1)*tileLength+j])) {
 						flag = true;
 						break;
-					} else if (iPos-epsilon > base + (i+1)*tileLength && jPos-epsilon > base+(j+1)*tileLength && 
+					} else if (iPos-epsilon > base + (i+1)*tileLength && jPos-epsilon > base+(j+1)*tileLength &&
 						(hpos+height > groundElevations[i*tileLength+j-1] || hpos+height > groundElevations[(i-1)*tileLength+j])) {
 						flag = true;
 						break;
-					} else if (iPos+epsilon < base + i*tileLength && jPos-epsilon > base+(j+1)*tileLength && 
+					} else if (iPos+epsilon < base + i*tileLength && jPos-epsilon > base+(j+1)*tileLength &&
 						(hpos+height > groundElevations[i*tileLength+j+1] || hpos+height > groundElevations[(i-1)*tileLength+j])) {
 						flag = true;
 						break;
-					} else if (iPos-epsilon > base + (i+1)*tileLength && jPos+epsilon < base+j*tileLength && 
+					} else if (iPos-epsilon > base + (i+1)*tileLength && jPos+epsilon < base+j*tileLength &&
 						(hpos+height > groundElevations[i*tileLength+j-1] || hpos+height > groundElevations[(i+1)*tileLength+j])) {
 						flag = true;
 						break;
-					}	
+					}
 				}
 			}
 		}
 		if (flag)
 			break;
 	}
-	
+
 	if (flag) {
 		var iret, jret;
 		if (iPos+epsilon < base + i*tileLength) {
@@ -236,7 +233,7 @@ function checkCollisionGeneral(xpos1, ypos1, zpos1) {
 		} else {
 			iret = ipos;
 		}
-		
+
 		if (jPos+epsilon < base+j*tileLength) {
 			jret = base+j*tileLength - 2*epsilon;
 		} else if (jPos-epsilon > base+(j+1)*tileLength) {
@@ -244,19 +241,18 @@ function checkCollisionGeneral(xpos1, ypos1, zpos1) {
 		} else {
 			jret = jpos;
 		}
-		
+
 		if (gravY < 0 || gravY > 0)
 			return [!flag, iret, hpos, jret];
 		if (gravX < 0 || gravX > 0)
 			return [!flag, hpos, iret, jret];
 		if (gravZ < 0 || gravZ > 0)
-			return [!flag, iret, jret, hpos];	
+			return [!flag, iret, jret, hpos];
 	}
 	return [true];
 }
 
-
-//uses xPos, yPos, zPos, 
+//uses xPos, yPos, zPos,
 // uses/modifies gravX, gravY, gravZ
 function checkGravitySwitch() {
 	var base = -cubeSideLength / 2;
@@ -302,7 +298,7 @@ function checkGravitySwitch() {
 				yaw -= 90;
 			} else {
 				yaw += 90;
-			}		
+			}
 			gravX = 0.0;
 			gravZ = 1.0;
 		}
@@ -330,5 +326,5 @@ function checkGravitySwitch() {
 			gravZ = 0.0;
 			gravY = 1.0;
 		}
-	}	
+	}
 }
