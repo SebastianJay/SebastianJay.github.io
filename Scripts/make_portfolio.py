@@ -30,9 +30,8 @@ image_slide_template = '<div class="carousel-item <!-- TEMPLATE: slide_active --
 </div>'
 youtube_slide_template = '<div class="carousel-item embed-responsive embed-responsive-16by9 <!-- TEMPLATE: slide_active -->">\
   <iframe id="player-<!-- TEMPLATE: item_id -->-<!-- TEMPLATE: player_num -->" class="youtube-iframe" type="text/html"\
-   src="<!-- TEMPLATE: slide_src -->?enablejsapi=1&rel=0" frameborder="0" allowfullscreen></iframe>\
+   src="<!-- TEMPLATE: slide_src -->?enablejsapi=1&rel=0&origin=https://sebastianjay.github.io" frameborder="0" allowfullscreen></iframe>\
 </div>'
-#&origin=https://sebastianjay.github.io
 
 fa_icons = {
     'github': 'fa-github',
