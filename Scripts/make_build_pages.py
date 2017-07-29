@@ -3,7 +3,6 @@ Creates a series of pages for the web builds of certain portfolio items
 """
 
 from global_vars import *
-import os.path
 
 # read templates
 with open(BuildTemplatePath, 'r') as fin:
@@ -12,9 +11,9 @@ with open(MasterTemplatePath, 'r') as fin:
     m_template = fin.read()
 
 # go through each of the web builds
-for directory in BuildDirectories:
+for name, subpath, outpath in BuildInfo:
     # read the inner content
-    with open(os.path.join(directory, BuildSubTemplatePath), 'r') as fin:
+    with open(subpath, 'r') as fin:
         build_sub_template = fin.read()
 
     # build the page
@@ -23,9 +22,9 @@ for directory in BuildDirectories:
         'portfolio_active': 'active',
         'cv_active': '',
         'path_prefix': '../',
-        'title': directory      # TODO use "readable name" rather than directory name
+        'title': name
     }, m_template)
 
     # write the file
-    with open(os.path.join(directory, BuildOutputPath), 'w') as fout:
+    with open(outpath, 'w') as fout:
         fout.write(build)

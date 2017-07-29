@@ -8,19 +8,16 @@ PortfolioItemTemplatePath = 'templates/portfolio-item.template.html'
 PortfolioDataPath = 'portfolio.yml'
 CVTemplatePath = 'templates/cv.template.html'
 IndexTemplatePath = 'templates/index.template.html'
-BuildDirectories = [    # subdirectories for each web build
-    'Cakewalk',
-    'CubeWorld',
-    'NeuralMusic',
-    'YeahMusic'
+BuildTemplatePath = 'templates/build.template.html' # master template for all build pages
+BuildInfo = [   # for each build, (readable name, subtemplate path, output path) string tuple
+    ('Cakewalk', 'templates/cakewalk.template.html', 'Cakewalk/index.html'),
+    ('CubeWorld', 'templates/cubeworld.template.html', 'CubeWorld/index.html'),
+    ('Neural Music', 'templates/neuralmusic.template.html', 'NeuralMusic/index.html'),
+    ('Yeah Music', 'templates/yeahmusic.template.html', 'YeahMusic/index.html')
 ]
-BuildTemplatePath = 'templates/build.template.html' # master template
-BuildSubTemplatePath = 'index.template.html'   # found in each subdirectory
-
 PortfolioOutputPath = 'portfolio.html'
 CVOutputPath = 'cv.html'
 IndexOutputPath = 'index.html'
-BuildOutputPath = 'index.html'  # for each subdirectory
 
 import re
 def templateSub(sid, repl, template):
