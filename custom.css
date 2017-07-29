@@ -1,3 +1,22 @@
+.navbar-toggler {
+  width: 3.5rem;
+  height: 2.5rem;
+}
+
+.navbar-toggler-secondary-right {
+  position: absolute;
+  right: 5rem;
+}
+
+.nav-link.fa-2x {
+  padding: 0.25rem 0;
+}
+@media (min-width: 992px) {
+  .nav-link.fa-2x {
+    padding: 0.25rem 0.5rem;
+  }
+}
+
 /* fix for images in carousels */
 .carousel-item.active,
 .carousel-item-next,
@@ -15,10 +34,6 @@
 .dropdown-menu {
   margin-top: 0;
   width: 100%;
-}
-
-.nav-link.fa-2x {
-  padding: 0.125em 0.5em;
 }
 
 .carousel-control-prev, .carousel-control-next {
