@@ -18,7 +18,7 @@ with open(MasterTemplatePath, 'r') as fin:
 # inline short template strings that we don't bother to put into separate files
 nav_category_template = '<li class="nav-item dropdown">\
   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><!-- TEMPLATE: category_name --></a>\
-  <div class="dropdown-menu">\
+  <div class="dropdown-menu <!-- TEMPLATE: category_dropdown_type -->">\
     <!-- TEMPLATE: category_items -->\
   </div>\
 </li>'
@@ -109,12 +109,15 @@ for item in p_data['items']:
 
 # construct nav
 nav = ''
+category_counter = 0
 for category in p_data['categories']:
     nav_list = '\n'.join(nav_snippets[category['id']])
     nav += templateSubN({
         'category_items': nav_list,
-        'category_name': category['name']
+        'category_name': category['name'],
+        'category_dropdown_type': 'dropdown-menu-right' if category_counter == len(p_data['categories']) - 1 else ''
     }, nav_category_template) + '\n'
+    category_counter += 1
 
 # build whole page
 p = templateSubN({

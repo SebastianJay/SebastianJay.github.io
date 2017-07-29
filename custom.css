@@ -32,12 +32,16 @@
 }
 
 #cv-container h5, #cv-container h6 {
-  /* move header to right alongside previous header; not responsive */
-  position: relative;
-  top: -1.625rem;
-  margin-bottom: -1.125rem;
-  text-align: right;          /* text-right */
   color: #636c72!important;   /* text-muted */
+}
+@media (min-width: 48rem) {
+  /* move sub-header to right alongside previous header on larger displays */
+  #cv-container h5, #cv-container h6 {
+    position: relative;
+    top: -1.625rem;
+    margin-bottom: -1.125rem;
+    text-align: right;          /* text-right */
+  }
 }
 
 #cv-container p {
