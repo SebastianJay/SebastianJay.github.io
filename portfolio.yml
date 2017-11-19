@@ -135,7 +135,7 @@ items:
     category:     games
     title:        Sunset High
     subtitle:     Murder Mystery RPG
-    description:  "One of the first games I worked on! I developed much of the code within MonoGame for a top-down RPG that's set in a high school; unfortunately the end product remains a prototype. Talk to NPCs with branching dialogue, perform quests to infiltrate cliques, pickpocket items from other students, and even fight a boss!"
+    description:  "One of the first games I worked on! I developed much of the code within MonoGame for a top-down RPG that's set in a high school; the end product is still a prototype, but some parts, such as the in-game menu UI, were thoughtfully implemented. Talk to NPCs with branching dialogue, perform quests to infiltrate cliques, pickpocket items from other students, and even fight a boss!"
     resources:
       -
         type:     image
@@ -155,9 +155,27 @@ items:
         tooltip:  Download Windows build
   -
     category:     software
+    title:        "PauseLab: BeCville"
+    subtitle:     Participatory Budgeting Portal
+    description:  "Made for the UVA computer science capstone, this project (developed by a team of 6) supports <a href=\"http://pauselab.com/\" target=\"_blank\">PauseLab</a>'s participatory budgeting efforts by providing a centralized place for ideas and project proposals related to community development, mass-mail, news posts, and votes. The website was constructed with Ruby on Rails 5 (with Bootstrap 4 and some Coffeescript on the front-end)."
+    resources:
+      -
+        type:     image
+        link:     img/pauselab0.png
+      -
+        type:     image
+        link:     img/pauselab1.png
+      -
+        type:     image
+        link:     img/pauselab2.png
+      -
+        type:     github
+        link:     https://github.com/uva-slp/pauselab
+  -
+    category:     software
     title:        SGD at UVA Site
     subtitle:     Portfolio on the LAMP stack
-    description:  "As the Student Game Developers' webmaster, I inherited a website with many static HTML pages; this wasn't convenient for maintenance purposes. We had access to the LAMP stack, so I added a DB schema and server side code, such that adding new content is as simple as inserting new rows. <em>NOTE</em>: I don't claim credit for the front-end work (which originates from a Bootstrap 3 theme)."
+    description:  "As the Student Game Developers' webmaster, I converted our website from a large set of static HTML pages to a dynamically generated collection on the LAMP stack. With the addition of a SQL DB and PHP templates, adding new content is as simple as inserting new rows. <em>NOTE</em>: The front-end design (which originates from a Bootstrap 3 theme) was done by my predecessor."
     resources:
       -
         type:     image
@@ -218,7 +236,7 @@ items:
     category:     hardware
     title:        chECEkm8
     subtitle:     Autonomous Chessboard
-    description:  "For the UVA computer engineering capstone, we created a system that allowed humans to play over-the-board chess against computers. The system is composed of a Reed switch circuit to detect human piece movements, a connection to a Stockfish chess engine to devise responses, and a motor-driven actuating magnet to execute those responses."
+    description:  "Made for the UVA computer engineering capstone, this system (created by a team of 5) allows humans to play over-the-board chess against computers. The system is composed of a Reed switch circuit to detect human piece movements, a connection to a Stockfish chess engine to devise responses, and a motor-driven actuating magnet to execute those responses."
     resources:
       -
         type:     youtube
