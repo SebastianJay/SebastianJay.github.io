@@ -21,7 +21,7 @@ for name, subpath, outpath in BuildInfo:
         'body': templateSubN({'build_content': build_sub_template}, build_template),
         'portfolio_active': 'active',
         'cv_active': '',
-        'path_prefix': '../',
+        'path_prefix': '../../',
         'title': name
     }, m_template)
 
