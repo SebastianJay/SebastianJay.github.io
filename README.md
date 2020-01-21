@@ -1,8 +1,8 @@
-# sebastianjay.github.io
+# sebastianjay.github.io [![Build Status](https://travis-ci.com/SebastianJay/SebastianJay.github.io.svg?branch=source)](https://travis-ci.com/SebastianJay/SebastianJay.github.io)
 
 This is the repo for my [portfolio website](https://sebastianjay.github.io), which is deployed on GitHub Pages. The webpages are built with my own simple templating system, where HTML comments are interpreted by Python scripts and replaced with the appropriate generated HTML snippets. This system gets particularly involved with the portfolio page, which uses a YAML file to create the various items, and the CV page, which uses a Markdown file which is then converted to HTML using [Pandoc](https://pandoc.org/). The other pages are relatively straightforward. If you're just looking for Markdown to HTML automation, [Jekyll](https://github.com/jekyll/jekyll) will be a better solution for you; if you're looking for a portfolio generated from YAML data (similar to [what I created](https://sebastianjay.github.io/portfolio.html)), consider adapting my code.
 
-I keep the scripts, templates, and generated HTML all on the same branch in this repo; the cleaner approach would likely involve separating these files onto separate branches -- one that gets deployed (`gh-pages`) and one that involves the automation (`master`). All files that end with just `.html` (i.e. not `.template.html`), along with content files (i.e. JS, CSS, and images), are exposed on the website. The template files (located under the `templates` folder) and Python scripts (under the `Scripts` folder) are not intended to be shown on the site, and are only used locally to generate the final HTML files.
+Travis CI is responsible for picking up changes from the `source` branch, running the build scripts (Bash and Python located under the `Scripts` directory) that convert the template HTML (i.e. those files ending in `template.html`) and data files into static HTML, [and pushing those files to `master`](https://docs.travis-ci.com/user/deployment/pages/), which GitHub Pages then builds from (note that [GitHub User pages must be built from `master`](https://stackoverflow.com/a/25561859)).
 
 ### Dependencies
 
@@ -12,6 +12,8 @@ This project has a couple dependencies in order to build the full set of pages:
 * [PyYAML](https://pypi.python.org/pypi/PyYAML) -- Can be installed via `pip install pyyaml`. Needed to create the portfolio page.
 * [Pandoc](https://pandoc.org/) -- Needed to create the CV page.
 * Bash -- on Windows there are many ways to get about this: Git Bash, MinGW, Linux subsystem, Cygwin... this is only needed to run `Scripts/build_site.sh`, which is rather short and can be easily rewritten as a Windows shell script.
+
+Look at the `.travis.yml` file to see how these are pulled onto the build agent.
 
 ### Workflow
 
