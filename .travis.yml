@@ -7,7 +7,7 @@ git:
 before_install:
   - sudo apt-get -y install pandoc
 script:
-  - bash ./Scripts/build_site.sh
+  - bash ./scripts/build_site.sh
 deploy:
   provider: pages
   skip_cleanup: true
