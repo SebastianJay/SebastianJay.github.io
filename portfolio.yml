@@ -85,7 +85,7 @@ items:
         link:     https://github.com/SebastianJay/UVA-Game-Design
       -
         type:     play
-        link:     Cakewalk/index.html
+        link:     builds/Cakewalk/index.html
         tooltip:  Play Cakewalk!
   -
     category:     games
@@ -107,7 +107,7 @@ items:
         link:     https://github.com/SebastianJay/CubeWorld
       -
         type:     play
-        link:     CubeWorld/index.html
+        link:     builds/CubeWorld/index.html
         tooltip:  Play CubeWorld!
   -
     category:     games
@@ -129,7 +129,7 @@ items:
         link:     https://github.com/josephbaik/uva.hax0rs
       -
         type:     play
-        link:     YeahMusic/index.html
+        link:     builds/YeahMusic/index.html
         tooltip:  Play Yeah Music!
   -
     category:     games
@@ -230,7 +230,7 @@ items:
         link:     https://github.com/SebastianJay/NeuralStyle-Music
       -
         type:     play
-        link:     NeuralMusic/index.html
+        link:     builds/NeuralMusic/index.html
         tooltip:  See visualizer in action
   -
     category:     hardware

@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml/">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jay Sebastian | CubeWorld</title>
+  <link rel="icon" type="image/vnd.microsoft.icon" href="../../favicon.ico" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../custom.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="../../custom.js"></script>
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-light navbar-toggleable-md bg-faded sticky-top mb-4">
+    <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="fa fa-bars"></span>
+    </button>
+    <button type="button" class="navbar-toggler navbar-toggler-secondary-right" data-toggle="collapse" data-target="#navbar-accounts" aria-controls="navbar-external" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="fa fa-user-circle-o"></span>
+    </button>
+    <a class="navbar-brand" href="../../index.html">Jay Sebastian</a>
+    <div id="navbar-content" class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="../../portfolio.html">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="../../cv.html">CV</a>
+        </li>
+      </ul>
+    </div>
+    <div id="navbar-accounts" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link fa fa-2x fa-github" href="https://github.com/SebastianJay" target="_blank"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fa fa-2x fa-soundcloud" href="https://soundcloud.com/jaysebastian" target="_blank"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fa fa-2x fa-linkedin" href="https://www.linkedin.com/in/jay-sebastian" target="_blank"></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- build div -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <script type="text/javascript" src="glMatrix-0.9.5.min.js"></script>
+<script type="text/javascript" src="webgl-utils.js"></script>
+
+<script type="text/javascript" src="map_builder.js"></script>
+<script type="text/javascript" src="input_handler.js"></script>
+<script type="text/javascript" src="colliding.js"></script>
+<script type="text/javascript" src="collectibles.js"></script>
+<script type="text/javascript" src="lighting.js"></script>
+<script type="text/javascript" src="special_primitives.js"></script>
+
+<script id="shader-fs" type="x-shader/x-fragment">
+  precision mediump float;
+
+  varying vec2 vTextureCoord;
+  varying vec3 vLightWeighting;
+
+  uniform sampler2D uSampler;
+
+  void main(void) {
+	vec4 textureColor = texture2D(uSampler, vec2(vTextureCoord.s, vTextureCoord.t));
+      //gl_FragColor = texture2D(uSampler, vec2(vTextureCoord.s, vTextureCoord.t));
+      gl_FragColor = vec4(textureColor.rgb * vLightWeighting, textureColor.a);
+  }
+</script>
+
+<script id="shader-vs" type="x-shader/x-vertex">
+  attribute vec3 aVertexPosition;
+	attribute vec3 aVertexNormal;
+  attribute vec2 aTextureCoord;
+
+  uniform mat4 uMVMatrix;
+  uniform mat4 uPMatrix;
+	uniform mat3 uNMatrix;
+
+	uniform vec3 uAmbientColor;
+
+	uniform vec3 uLightingDirection;
+	uniform vec3 uDirectionalColor;
+
+	uniform vec3 uPointLightingPosition;
+	uniform vec3 uPointLightingColor;
+
+	uniform bool uUseLighting;
+
+  varying vec2 vTextureCoord;
+	varying vec3 vLightWeighting;
+
+  void main(void) {
+		vec4 mvPosition = uMVMatrix * vec4(aVertexPosition, 1.0);
+		vec4 pointLightPos = uMVMatrix * vec4(uPointLightingPosition, 1.0);
+    gl_Position = uPMatrix * mvPosition;
+    vTextureCoord = aTextureCoord;
+
+		if (!uUseLighting) {
+			vLightWeighting = vec3(1.0, 1.0, 1.0);
+		} else {
+			vec3 transformedNormal = uNMatrix * aVertexNormal;
+			vec3 pointLightDir = normalize(pointLightPos.xyz - mvPosition.xyz);
+			float directionalLightWeighting = max(dot(transformedNormal, uLightingDirection), 0.0);
+			float pointLightWeighting = max(dot(transformedNormal, pointLightDir), 0.0);
+			vLightWeighting = uAmbientColor + uDirectionalColor * directionalLightWeighting + uPointLightingColor * pointLightWeighting;
+		}
+  }
+</script>
+
+<link rel="stylesheet" href="cubeworld.css">
+
+<script type="text/javascript" src="init.js"></script>
+
+<div id="gl-container">
+  <canvas id="gl-canvas" width="1280" height="720"></canvas>
+  <div id="health-text" class="canvas-text"></div>
+  <div id="endgame-text" class="canvas-text"></div>
+</div>
+
+<br/>
+<br/>
+
+<div class="text-center">
+  <a data-toggle="collapse" href="#build-info" aria-expanded="false" aria-controls="build-info">
+    Toggle Info
+  </a>
+</div>
+
+<div id="build-info" class="collapse">
+  <div class="card card-block">
+    <h3>Overview</h3>
+    <p>The objective of this small walking simulator is to collect the 6 colored spheres
+      located on the inside of the cube. You may switch sides on the cube by approaching a
+      wall and jumping. Each surface has its own theme and hazards. Enjoy!</p>
+
+    <h3>Controls</h3>
+    <p>The first set of keybindings is recommended as it will not scroll the page.</p>
+    <ul>
+      <li>A/D or Left/Right: Rotate left/right</li>
+      <li>W/S or Up/Down: Move forward/backward</li>
+      <li>Q/E or PgUp/PgDn: Look up/down</li>
+      <li>P or Space: Jump</li>
+    </ul>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+<br/>
+<footer class="text-center mb-3">
+  <a href="../portfolio.html">Return to Portfolio</a>
+</footer>
+
+
+</body>
+
+</html>

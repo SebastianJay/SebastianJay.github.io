@@ -10,10 +10,10 @@ CVTemplatePath = 'templates/cv.template.html'
 IndexTemplatePath = 'templates/index.template.html'
 BuildTemplatePath = 'templates/build.template.html' # master template for all build pages
 BuildInfo = [   # for each build, (readable name, subtemplate path, output path) string tuple
-    ('Cakewalk', 'templates/cakewalk.template.html', 'Cakewalk/index.html'),
-    ('CubeWorld', 'templates/cubeworld.template.html', 'CubeWorld/index.html'),
-    ('Neural Music', 'templates/neuralmusic.template.html', 'NeuralMusic/index.html'),
-    ('Yeah Music', 'templates/yeahmusic.template.html', 'YeahMusic/index.html')
+    ('Cakewalk', 'templates/cakewalk.template.html', 'builds/Cakewalk/index.html'),
+    ('CubeWorld', 'templates/cubeworld.template.html', 'builds/CubeWorld/index.html'),
+    ('Neural Music', 'templates/neuralmusic.template.html', 'builds/NeuralMusic/index.html'),
+    ('Yeah Music', 'templates/yeahmusic.template.html', 'builds/YeahMusic/index.html')
 ]
 PortfolioOutputPath = 'portfolio.html'
 CVOutputPath = 'cv.html'
